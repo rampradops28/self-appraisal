@@ -1,0 +1,627 @@
+ /* General Styles */
+ body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #4b83d5;
+  overflow-x: hidden; /* Prevent horizontal scrollbars */
+  display: flex; /* Use flexbox for the entire body */
+  height: 100vh; /* Make body take up full viewport height */
+}
+
+/* Container Styles */
+.container {
+  display: flex; /* Use flexbox for the container */
+  height: 100%; /* Make container take up full height */
+  flex-direction: row; /* Stack elements vertically */
+}
+ 
+/* Top Navigation Bar */
+.top-nav {
+  background-color: #fff;
+  padding: 10px;
+  width:400px;
+  height: calc(100% - 40px); /* Full width minus the right sidebar width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left:100px; /* Adjust for Sidenavbar width */
+  z-index: 10;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.search-input {
+  padding: 8px;
+  border: 1px solid lightgray;
+  border-radius: 5px 0 0 5px;
+  width: 200px;
+}
+
+.search-btn {
+  background-color: #1976d2;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+
+.search-btn:hover {
+  background-color: #155a8a;
+}
+
+/* Sidebar Styles */
+.sidenavbar {
+  width: 250px; /* Fixed width for the sidebar */
+  background-color: #fff;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  position: fixed; /* Ensure the sidebar is positioned over the content */
+  top: 0;
+  left: -250px; /* Start with the sidebar off-screen */
+  transition: left 0.3s; /* Smooth transition */
+}
+
+ .sidenavbar.open {
+  left: 0; /* Move the sidebar to overlap the main content */
+}
+/* Right Sidebar Styles */
+.right-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 330px;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main Content Styles */
+/* Main Content Styles */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  transition: left 0.3s, margin-right 0.3s; /* Smooth transition for margin changes */
+  position: relative;
+  left: 0;
+  width: 100%; /* Adjust width for full content */
+}
+
+
+.main-content.sidenavbar-closed {
+  margin-left: 90px;  
+  /* Adjust for closed sidenavbar width */
+   margin-right: 120px;
+   /* Adjust for right sidebar width */
+  /* width: calc(100% - 500px); */
+  width:920px;
+   /* Adjust width for closed sidebar */
+}
+
+.sidenavbar.open ~ .main-content {
+  left: 250px; /* Move the content to the right by the sidebar width */
+}
+
+.main-content.fixed {
+  position: relative;
+}
+
+
+
+/* Center Content Container */
+.center-content {
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  height: 100%; /* Make the center content take up full available height */
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space between profile info and search */
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  border: 2px solid #1976d2;
+}
+
+.profile-name {
+  font-size: 1.5em;
+  color: #333;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+  flex-grow: 1; /* Allow the search container to grow and take available space */
+}
+
+.search-input {
+  padding: 8px;
+  border: 1px solid lightgray;
+  border-radius: 5px 0 0 5px;
+  width: 200px;
+}
+
+.search-btn {
+  background-color: #1976d2;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.add-post-btn {
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+ 
+.add-post-btn:hover {
+  background-color: #155a8a;
+}
+
+/* Search Input Styles */
+.search-container {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.search-input {
+  padding: 8px;
+  border: 1px solid lightgray;
+  border-radius: 5px 0 0 5px;
+  width: 200px;
+}
+
+.search-btn {
+  background-color: #1976d2;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background-color: #155a8a;
+}
+
+/* Post Card Styles */
+.post-card {
+  position: relative; /* Make sure the container is positioned */
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.post-header{
+  position:relative
+}
+
+.experience-points {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #1976d2;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.post-author {
+  margin-bottom: 10px;
+}
+
+.post-image {
+  width: 60%;
+  height: 50%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.post-content {
+  margin-bottom: 10px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.like-btn, .comment-btn, .share-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+ 
+ 
+ 
+  font-size: 1.2em;
+}
+.like-btn.liked {
+  color: red;
+}
+
+.share-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  background-color: #ffffff; /* White background for the popup */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  display: none;
+}
+
+
+.share-popup.active {
+  display: block;
+}
+
+.share-popup .close-popup {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #888;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.share-popup h4 {
+  margin-bottom: 10px;
+}
+
+.social-media-logos {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.social-media-logo img {
+  width: 24px;
+  height: 24px;
+}
+
+.share-button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue color for the Share button */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.share-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+.popup-content {
+  text-align: center;
+}
+
+.popup-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.popup-content li {
+  margin: 10px 0;
+}
+
+.close-popup {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.post-likes, .post-comments {
+  margin-top: 10px;
+}
+
+.comment-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.delete-comment-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: #888;
+  margin-left: 10px;
+}
+
+.comment-list {
+  margin-bottom: 10px;
+}
+
+.post-comment-input {
+  display: flex;
+  margin-top: 10px;
+}
+
+.comment-input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid lightgray;
+  border-radius: 5px 0 0 5px;
+}
+
+.post-btn {
+  background-color: #1976d2;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.post-btn:hover {
+  background-color: #155a8a;
+}
+
+/* CSS for border icons */
+/* CSS for border icons */
+.icon-button {
+  border: 2px solid #333; /* Border color */
+  border-radius: 50%;
+  padding: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.icon-button.liked {
+  color: red; /* Fill color when liked */
+}
+
+.icon-button.active {
+  background-color: red; /* Background color when active */
+  color: white; /* Icon color when active */
+}
+
+/* CSS for share popup */
+.share-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.share-popup.active {
+  display: block;
+}
+
+.share-popup .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.social-media-logos {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.social-media-logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.social-media-logo img {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* Sidebar Suggestions Styles */
+.follower-suggestions, .hashtag-suggestions {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.follower-image {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.follow-btn {
+  background-color: #1976d2;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.follow-btn:hover {
+  background-color: #155a8a;
+}
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* Style for the Sidenavbar */
+.sidenavbar {
+  width: 250px; /* Fixed width for the sidebar */
+  background-color: #fff;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+/* Style for the Sidenavbar when closed */
+.sidenavbar.closed {
+  width: 60px; /* Reduced width for closed state */
+}
+
+/* Style for the Main Content */
+.main-content {
+  flex-grow: 1; /* Allow main content to grow to fill available space */
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+  box-sizing: border-box; /* Include padding in width/height calculations */
+  transition: margin-left 0.3s, margin-right 0.3s; /* Smooth transition for margin changes */
+  z-index: 0; /* Ensure the main content is below the sidebar */
+}
+
+/* Style for the Main Content when Sidenavbar is closed */
+.sidenavbar.closed ~ .main-content {
+  margin-left: 60px; /* Adjust margin when sidebar is closed */
+}
+
+/* Style for the Main Content when Sidenavbar is open */
+.sidenavbar:not(.closed) ~ .main-content {
+  margin-left: 250px; /* Adjust margin when sidebar is open */
+}
+
+/* Style for the Right Sidebar */
+.right-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 330px;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-nav {
+  background-color: #fff;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.search-input {
+  padding: 8px;
+  border: 1px solid lightgray;
+  border-radius: 5px 0 0 5px;
+  width: 200px;
+}
+
+.search-btn {
+  background-color: #1976d2;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background-color: #155a8a;
+}

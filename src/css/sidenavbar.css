@@ -1,0 +1,190 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+}
+
+/* Container */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  
+  width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  transition: width 0.3s ease-in-out;
+  height: 100vh; /* Ensure the sidebar takes the full height */
+}
+
+.sidebar.hidden {
+  width: 60px;
+}
+
+.sidebar h3 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 5px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.sidebar-link i {
+  margin-right: 15px; /* Add space between icon and menu name */
+}
+
+.sidebar-link:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.sidebar-item.icon-only .sidebar-link {
+  justify-content: center;
+}
+
+.sidebar-item.icon-only .sidebar-link span {
+  display: none;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Hamburger/Cancel Button Styles */
+.sidebar-toggle {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+span {
+  margin-left: 15px;
+}
+
+.hamburger,
+.cancel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.hamburger {
+  margin-right: 7px;
+}
+
+.hamburger .line,
+.cancel-btn .line {
+  height: 2px;
+  width: 20px;
+  background-color: #333;
+  margin: 25px 0;
+  transition: transform 0.5s ease-in-out;
+}
+
+.hamburger.active .line:nth-child(1) {
+  transform: translate(0, 5px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+  transform: translate(0, -5px) rotate(-45deg);
+}
+
+.cancel-btn .line:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.cancel-btn .line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.sidebar-link,
+.sidebar-toggle {
+  margin-bottom: 15px;
+}
+
+.sidebar-link i,
+.sidebar-toggle i {
+  display: inline-block;
+}
+
+/* Responsive Styles */
+
+/* For large screens/desktops */
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: 250px auto;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 767px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .sidebar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .sidebar h2,
+  .sidebar img {
+    display: none;
+  }
+  .sidebar ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .sidebar li {
+    padding: 5px;
+    font-size: 0.9em;
+  }
+}
+
+/* For tablets (portrait and landscape) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    grid-template-columns: 200px auto;
+  }
+  .sidebar {
+    padding: 15px;
+  }
+  .sidebar li {
+    padding: 8px 15px;
+    font-size: 1em;
+  }
+}
